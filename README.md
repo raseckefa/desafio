@@ -1,4 +1,36 @@
+O projeto está dividido em duas partes. 
+
+o backend desenvolvido em python gera um endpoint para acessar os card cadastrados em uma base local. 
+
+## 1. Inicie o backend com o comando 
+
+python .\api\server.py run
+
+##########################################
+
+Na raiz do projeto existe um processo de importação de cards. 
+
+## 2. para importar uma lista de cards no formato csv, basta executar o processo de importação
+
+python .\import.py  
+
+## 3. Em seguida digite o caminho completo de onde o arquivo está localizado na sua máquina.
+
+##########################################
+
+Por fim a pasta mu-app contém uma versão base de uma aplicação para consumir e cadastrar os dados de card. 
+
+## 4. Para iniciar a aplicação frontend, basta executar o comando 
+
+yarn start
+
+##########################################
+##########################################
+##########################################
+
 ## Desafio
+
+https://github.com/producao-conteudo/desafio
 
 Precisamos desenvolver uma ferramenta para criação de Cards de conteúdo esportivos (Insights).
 
@@ -12,6 +44,23 @@ Ações da API
 - Atualizar card
 - Listar card
   - Filtrar por tags
+
+CREATE TABLE card (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+  texto varchar NULL,
+  data_criacao timestamp,
+  data_modificacao timestamp NULL,
+  UNIQUE(id)
+);
+CREATE TABLE card_tag (
+	card_id int NOT NULL,
+  tag_id int NOT NULL 
+);
+CREATE TABLE tag (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name varchar NOT NULL,
+  UNIQUE(name)
+);
 
 Um card possui os campos: 
 ```
